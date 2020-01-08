@@ -1,0 +1,12 @@
+logging:
+  config: /opt/crawler_configs/logconfig/crawler-scheduler-logback.xml
+#Apollo配置信息
+namespaces:
+  val: crawler-scheduler,global
+app:
+  id: Crawler
+apollo:
+  autoUpdateInjectedSpringProperties: true
+  bootstrap:
+    enabled: true
+    namespaces: ${namespaces.val}

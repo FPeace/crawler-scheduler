@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mtl.crawler</groupId>
+    <artifactId>crawler-scheduler</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>crawler-scheduler</name>
+
+    <parent>
+        <groupId>com.mtl.common</groupId>
+        <artifactId>common-dependencies</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>crawler-scheduler-common</module>
+        <module>crawler-scheduler-api</module>
+        <module>crawler-scheduler-rpc-provider</module>
+        <module>crawler-scheduler-rest-provider</module>
+        <module>crawler-scheduler-app</module>
+    </modules>
+
+    <!--The version of dependency jars are managed here-->
+    <properties>
+        <skipTests>true</skipTests>
+
+        <!--Third party jars-->
+        <logback-gelf.version>0.3</logback-gelf.version>
+        <commons-lang.version>3.3.2</commons-lang.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <springfox-version>2.5.0</springfox-version>
+        <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
+        <pagehelper-starter.version>1.2.10</pagehelper-starter.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+
+        <!--MTL common jars. TODO: the common versions maybe not the latest-->
+        <common-datasource.version>2.0.0-SNAPSHOT</common-datasource.version>
+        <common-model.version>2.0.0-SNAPSHOT</common-model.version>
+        <common-bizmodel.version>2.0.0-SNAPSHOT</common-bizmodel.version>
+        <common-utils.version>2.0.0-SNAPSHOT</common-utils.version>
+        <common-aspect.version>2.0.0-SNAPSHOT</common-aspect.version>
+        <common-errors.version>2.0.0-SNAPSHOT</common-errors.version>
+        <common-health.version>2.0.0-SNAPSHOT</common-health.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.moocar</groupId>
+                <artifactId>logback-gelf</artifactId>
+                <version>${logback-gelf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+
+            <!--scheduler-->
+            <dependency>
+                <groupId>com.mtl.crawler</groupId>
+                <artifactId>crawler-scheduler-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.crawler</groupId>
+                <artifactId>crawler-scheduler-rpc-provider</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.crawler</groupId>
+                <artifactId>crawler-scheduler-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.crawler</groupId>
+                <artifactId>crawler-scheduler-rest-provider</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <!--MTL Commons-->
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-model</artifactId>
+                <version>${common-model.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-bizmodel</artifactId>
+                <version>${common-bizmodel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-utils</artifactId>
+                <version>${common-utils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-datasource</artifactId>
+                <version>${common-datasource.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-error</artifactId>
+                <version>${common-errors.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-error-handler</artifactId>
+                <version>${common-errors.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-aspect</artifactId>
+                <version>${common-aspect.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mtl.common</groupId>
+                <artifactId>common-health</artifactId>
+                <version>${common-health.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>${nexus.releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>${nexus.snapshots.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

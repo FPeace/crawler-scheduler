@@ -1,0 +1,6 @@
+# Project exclude paths
+/crawler-scheduler-api/target/
+/crawler-scheduler-app/target/
+/crawler-scheduler-common/target/
+/crawler-scheduler-rest-provider/target/
+/crawler-scheduler-rpc-provider/target/
